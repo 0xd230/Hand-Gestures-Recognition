@@ -1,5 +1,6 @@
 # Hand-Gestures-Recognition
 
+
 A Pattern Recognition Machine Learning based on vector projection and Euclidean distance, with the maximal hand processed of: 1
 
 This project uses the following library each for its own purposes:
@@ -19,7 +20,7 @@ This initializes OpenCV system telling it to process and set up the camera to op
 
 MediaPipe is a huge library specialized to "see" and "hear" in real-time, such as tracking or recognizing facial features. Google offers a single library to process these data's, but the thing on what we want the library to process depends on us. Google offers various AI models, to keep it simple, the core MediaPipe library is like a "PC", and google offers some kind of "disks" that we can insert for the "PC" to process.
 
-In this case, the disk we want to insert is the Hand Landmarker model. The file of this model can be donwloaded in the official MediaPipe website, named "hand_landmarker.task". First we would need to store the name file into s variable so that we can load it into the MediaPipe library later
+In this case, the disk we want to insert is the Hand Landmarker model. The file of this model can be downloaded in the official MediaPipe website, named "hand_landmarker.task". First we would need to store the name file into s variable so that we can load it into the MediaPipe library later
 
 `model = 'hand_landmarker.task'`
 
@@ -33,5 +34,6 @@ MediaPipe offers flexibility, that's why google gives us the ability to easily m
 
 * `HandLandmarkResult`: This is the class that would contain the result data's after MediaPipe is done processing the frame, In this case because we need the hand coordinate tracked, we need to load it into our own local variable: `handLandmarkerRes = mp.tasks.vision.HandLandmarkerResult`
 
-* `RunningMode`: This is its own settings, it isnt a complex one, it simply a variable that conatins what mode we would like to be in. In Mediapipe, we can ask the program to process certain type of files, we say "I want you to track the hand in this video" or "I want you to track the hand in this photo". Since we are using a live camera, we would like to say "I want you to track the hand in this Live Stream", in this sense, live stream is the camera. Although for now we would just like to set things up first, so we would need to simply load it into a variable first: `runningMode = mp.tasks.vision.RunningMode`
+* `RunningMode`: This is its own settings, it isn't a complex one, it simply a variable that contains what mode we would like to be in. In Mediapipe, we can ask the program to process certain type of files, we say "I want you to track the hand in this video" or "I want you to track the hand in this photo". Since we are using a live camera, we would like to say "I want you to track the hand in this Live Stream", in this sense, live stream is the camera. Although for now we would just like to set things up first, so we would need to simply load it into a variable first: `runningMode = mp.tasks.vision.RunningMode`
+
 
