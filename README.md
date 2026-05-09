@@ -45,7 +45,13 @@ In mediapipe, to give the information of this "drop-off" point, we need to set i
 
 This function have various arguments, but we would only need to set 4 of them by specifying the name and assigning values
 
-- base_options: Remember our variable that contains teh base options, yeah, we feed it into this variable. By writing `base_options=baseOpt(model)`, we specified that we would like to use the Base Default options, with the model hand landmarker (remember: `model = 'hand_landmarker.task'`).
+- `base_options`: Remember our variable that contains teh base options, yeah, we feed it into this variable. By writing `base_options=baseOpt(model)`, we specified that we would like to use the Base Default options, with the model hand landmarker (remember: `model = 'hand_landmarker.task'`).
+
+- `running_mode`: As said, here we choose what mode we would like to use, in this case we'll use LIVE_STREAM by writing `running_mode = runningMode.LIVE_STREAM`
+
+- `result_callback`: This is the field where we specify our "drop-off point", for this, we must first create a function, a place, for the library to put the results in. Say we create the function `process_result()`. after creating, we must also declare some arguments, these arguments serves as eahc pint of the drop off location. `result`, the variable that will contain the result variables, such as the finger's coordinate, `outIMG`, which is the literal frmae we are working on, the same one that we fed previously, and finally the `timestamp_ms`, which is the duration since our prgram was ran in miliseconds.
+
+- `num_hands`: simply the amount of hands we want to process.
 
 Here, we save the configuration into a local variable that we can feed later into the program, so its:
 change the settings -> save it into a variable -> feed the customized settings into the program later.
