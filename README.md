@@ -68,9 +68,9 @@ Suppose we have a sample of a peace sign, and the user shows an open palm in the
 
 <img width="500" height="500" alt="ChatGPT Image May 10, 2026 at 04_51_15 PM" src="https://github.com/user-attachments/assets/ef5db728-aae1-49ee-b32b-16b7a2dee65b" />
 
-This image shows the difference of the vectors by the reference and the live gesture. Here, the sample would be the peace sign, while the gesture held up by the user is an open palm. Suppose at now we are calculating the node for the tip of the index finger
+This image shows the difference of the vectors by the reference and the live gesture. Here, the sample would be the peace sign, while the gesture held up by the user is an open palm. Suppose at now we are calculating the node for the tip of the index finger. For the sample $$\overrightarrow a$$ , the unit vector made a 45º distance with respect to the vertical line, while the angle made by the real time hand ($$\overrightarrow b$$) makes a 30º degree with respect to the vertical line.
 
-this way, we can match the hand's and finger's orientation by the vector projectoon Dot Product. By rearranging the dot product by uts cosine law, we can have whats called the "Cosine Similarity" denoted by:
+To find the similarity, we need to ask "how many unit angles away is the vector $$\overrightarrow b$$ from $$\overrightarrow a$$? we can match the hand's and finger's orientation, or in this case, the distance in angles by the vector projectoon Dot Product. By rearranging the dot product by uts cosine law, we can have whats called the "Cosine Similarity" denoted by:
 
 $$
 \cos{ \theta } = \frac{\overrightarrow A \cdot \overrightarrow B}{||A||||B||}
