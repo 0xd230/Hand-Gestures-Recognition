@@ -71,6 +71,7 @@ this way, we can match the hand's and finger's orientation by the vector project
 
 $$
 \cos{ \theta } = \frac{\overrightarrow A \dot \overrightarrow B}{||A|| \times ||B||}
+$$
 
 * Hand Shape
 
