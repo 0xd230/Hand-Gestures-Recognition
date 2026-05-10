@@ -59,7 +59,11 @@ $$
 The direction of this vector relies on the hand orientation, as the following:
 
 <img width="1408" height="768" alt="Gemini_Generated_Image_1d3o741d3o741d3o" src="https://github.com/user-attachments/assets/0f0b1cef-eb5e-4c48-b5da-824e9efdc2e9" />
+Where $$\overrightarrow{a}$$ is the vector for the hand tilted 90º, and $$\overrightarrow{v}$$ is the vector for the up right hand.
 
+This shows tha our vector's direction is proportional to our hand orientation, or to be specific, the position relative to the wrist.
+
+niuiyvtcrxdrtfcygvuhbijnoknjobhivgucfyxdtrszzdxtfcyguvhbijnok
 
 * Hand Shape
 
