@@ -86,7 +86,9 @@ We could only mesure the angle because we got rid of the magnitude earlier. Thus
 
 * Hand Shape
 
-This last step
+This last step, after getting the angle of each nodes, we would need to compare the coordinate. this is practically how we compare hand poses. The angle of the vector might be similar, but the position of the indices might also have drastic difference
+
+<img width="1280" height="720" alt="angle barely different-2" src="https://github.com/user-attachments/assets/e3d3e437-b8c7-4976-9eb9-5a80408a3bd7" />
   
 
 # System
