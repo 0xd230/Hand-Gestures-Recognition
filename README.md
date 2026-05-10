@@ -61,9 +61,16 @@ The direction of this vector relies on the hand orientation, as the following:
 <img width="1408" height="768" alt="Gemini_Generated_Image_1d3o741d3o741d3o" src="https://github.com/user-attachments/assets/0f0b1cef-eb5e-4c48-b5da-824e9efdc2e9" />
 Where $$\overrightarrow{a}$$ is the vector for the hand tilted 90º, and $$\overrightarrow{v}$$ is the vector for the up right hand.
 
-This shows tha our vector's direction is proportional to our hand orientation, or to be specific, the position relative to the wrist.
+This shows that our vector's direction is proportional to our hand orientation, or to be specific, the position relative to the wrist.
 
-niuiyvtcrxdrtfcygvuhbijnoknjobhivgucfyxdtrszzdxtfcyguvhbijnok
+Suppose we have a sample of a peace sign, and the user shows an open palm in the live stream camera. The program would compare each indices with each of their own matching sample indices. The program will compare the vector for the tip of the index in camera, to the vector of the tip of the index in the provided sample. such as show below
+
+INSERT IMAGE HERE LATER
+
+this way, we can match the hand's and finger's orientation by the vector projectoon Dot Product. By rearranging the dot product by uts cosine law, we can have whats called the "Cosine Similarity" denoted by:
+
+$$
+\cos{ \theta } = \frac{\overrightarrow A \dot \overrightarrow B}{||A|| \times ||B||}
 
 * Hand Shape
 
