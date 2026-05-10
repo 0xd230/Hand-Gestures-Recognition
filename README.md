@@ -9,6 +9,30 @@ This project uses the following library each for its own purposes:
 * Numpy : Process matrices and vector calculation
 * Pathlib : Generate/open savefiles
 
+# Algorithm
+
+To detect hand gestures, the simplest appraoch that can be done is calculating the "similairty" between the live gesture the user is doing in real time, and the "golden sample" stored in a certain savefile.
+
+To put it in simple words, first we would need a sample which can be done by making a "recording" system. In this part of the program, the user would make a gesture and record it, the recorded data would be saved in a savefile. Later on, when the user want to actually use the program to detetc recorded gestures, the user simply holds a certain gesture. The program would then see the shape of the hand and take its mathematical form and compare it one byb one by the recorded samples provided earlier. For each gestures the program would apply some kind of similarity score spanning between 0 and 1, and return the gesture with the highest score
+
+To achieve this, this program utilizes two main components of hand gesture:
+- Hand orrientation
+- Hand shape
+
+These two componnents is the base of what makes a hand gesture
+
+* Normalization
+
+To start off, when we feed the MediaPipe library with a frame or an image, the library would process the image, and define the location of each indices of the hand based on the landmark:
+
+<img width="1073" height="372" alt="hand-landmarks" src="https://github.com/user-attachments/assets/8bd3c6a8-12f4-4590-9a68-9abfcbfad4c4" />
+
+Inside each of those indices contains their current location on the single fram/image we game MediaPipe. Although not in a way of regular coordinate like (2, 3). MediaPipe instead provides us with a coordinate that only spans from 0 to 1.10290837t6745687918093074986tireodvhb jfceihui
+
+* Hand Orientation
+
+* Hand Shape
+
 # System
 
 The system first loads and initiates every single library needed for processing.
@@ -49,9 +73,11 @@ This function have various arguments, but we would only need to set 4 of them by
 
 - `running_mode`: As said, here we choose what mode we would like to use, in this case we'll use LIVE_STREAM by writing `running_mode = runningMode.LIVE_STREAM`
 
-- `result_callback`: This is the field where we specify our "drop-off point", for this, we must first create a function, a place, for the library to put the results in. Say we create the function `process_result()`. after creating, we must also declare some arguments, these arguments serves as eahc pint of the drop off location. `result`, the variable that will contain the result variables, such as the finger's coordinate, `outIMG`, which is the literal frmae we are working on, the same one that we fed previously, and finally the `timestamp_ms`, which is the duration since our prgram was ran in miliseconds.
+- `result_callback`: This is the field where we specify our "drop-off point", for this, we must first create a function where we can take and process the data given, a place, for the library to put the results in. Say we create the function `process_result()`. after creating, we must also declare some arguments, these arguments serves as eahc pint of the drop off location. `result`, the variable that will contain the result variables, such as the finger's coordinate, `outIMG`, which is the literal frmae we are working on, the same one that we fed previously, and finally the `timestamp_ms`, which is the duration since our prgram was ran in miliseconds.
 
 - `num_hands`: simply the amount of hands we want to process.
 
 Here, we save the configuration into a local variable that we can feed later into the program, so its:
 change the settings -> save it into a variable -> feed the customized settings into the program later.
+
+
