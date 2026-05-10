@@ -27,6 +27,7 @@ To start off, when we feed the MediaPipe library with a frame or an image, the l
 
 <img width="1073" height="372" alt="hand-landmarks" src="https://github.com/user-attachments/assets/8bd3c6a8-12f4-4590-9a68-9abfcbfad4c4" />
 
+
 Inside each of those indices contains their current location on the single fram/image we game MediaPipe. Although not in a way of regular coordinate like (2, 3). MediaPipe instead provides us with a coordinate that only spans from 0 to 1, (0, 0) being the top left, (1, 1) being the bottom right. Because this is technically in a "Percentage" form, we must later multiply the coordinate given by MediaPipe with the screen resoltion (width and height)
 
 Normalization involves making something consistant and efficient. Because we are tracking the hand gesture, we need to make the coordinates of each indices consistent, why?
@@ -54,6 +55,10 @@ $$
 $$
 
 * Hand Orientation
+
+The direction of this vector relies on the hand orientation, as the following:
+
+<img width="1408" height="768" alt="Gemini_Generated_Image_1d3o741d3o741d3o" src="https://github.com/user-attachments/assets/0f0b1cef-eb5e-4c48-b5da-824e9efdc2e9" />
 
 
 * Hand Shape
