@@ -58,15 +58,15 @@ $$
 
 The direction of this vector relies on the hand orientation, as the following:
 
-<img width="732" height="400" alt="Gemini_Generated_Image_1d3o741d3o741d3o" src="https://github.com/user-attachments/assets/0f0b1cef-eb5e-4c48-b5da-824e9efdc2e9" />
+<img width="1280" height="720" alt="angle barely different-4" src="https://github.com/user-attachments/assets/d4b1d2a9-f799-41c0-80c1-4487e766719e" />
 
-Where $$\overrightarrow{a}$$ is the vector for the hand tilted 90º, and $$\overrightarrow{v}$$ is the vector for the up right hand.
+Where $$\overrightarrow{a}$$ is the vector for the hand tilted, and $$\overrightarrow{v}$$ is the vector for the up right hand.
 
 This shows that our vector's direction is proportional to our hand orientation, or to be specific, the position relative to the wrist.
 
 Suppose we have a sample of a peace sign, and the user shows an open palm in the live stream camera. The program would compare each indices with each of their own matching sample indices. The program will compare the vector for the tip of the index in camera, to the vector of the tip of the index in the provided sample. such as show below
 
-<img width="500" height="500" alt="ChatGPT Image May 10, 2026 at 04_51_15 PM" src="https://github.com/user-attachments/assets/ef5db728-aae1-49ee-b32b-16b7a2dee65b" />
+<img width="1280" height="720" alt="angle barely different-3" src="https://github.com/user-attachments/assets/e1c0b181-49d9-4efe-8772-fa8dac104c8e" />
 
 This image shows the difference of the vectors by the reference and the live gesture. Here, the sample would be the peace sign, while the gesture held up by the user is an open palm. Suppose at now we are calculating the node for the tip of the index finger. For the sample $$\overrightarrow a$$ , the unit vector made a 45º distance with respect to the vertical line, while the angle made by the real time hand ($$\overrightarrow b$$) makes a 30º degree with respect to the vertical line.
 
@@ -90,6 +90,31 @@ This last step, after getting the angle of each nodes, we would need to compare 
 
 <img width="1280" height="720" alt="angle barely different-2" src="https://github.com/user-attachments/assets/e3d3e437-b8c7-4976-9eb9-5a80408a3bd7" />
   
+Now having this big difference, we can calculate the distance between the node of the reference and the node of the real-time frame, in this case (13, 2) and (6, 2.1)
+
+$$
+\sqrt{(13 - 6)^2 + (2-2.1)^2}
+$$
+
+denoted by
+
+$$
+d(p, q) = \sqrt{\sum_{i = 1}^{n} (p_i - q_i)^2}
+$$
+
+although, a new problem emegered, This distance isnt consistent and will change according to the hand state, as shown in the diagram below
+
+<img width="1280" height="720" alt="angle barely different-5" src="https://github.com/user-attachments/assets/bf3016e4-7757-4f76-8e70-28831e8d875e" />
+
+This shows that even though the user gives a correct hand pose, even the slightest size difference, the system wont recognize this. Thus instead, because we are dealing with scale, we must use some kind of pivot scale that grows linearly with the whole hand size, and take the ratio with respect to that pivot scale.
+
+In this sense, the one distance that would surely be reliable is the palm height, the distance between the wrist and the base of the middle finger. we'll call this distance L
+
+So our full equation would be
+
+$$
+d(p, q) = \frac{\sqrt{\sum_{i = 1}^{n} (p_i - q_i)^2}}{L}
+$$
 
 # System
 
