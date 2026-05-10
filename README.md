@@ -27,9 +27,34 @@ To start off, when we feed the MediaPipe library with a frame or an image, the l
 
 <img width="1073" height="372" alt="hand-landmarks" src="https://github.com/user-attachments/assets/8bd3c6a8-12f4-4590-9a68-9abfcbfad4c4" />
 
-Inside each of those indices contains their current location on the single fram/image we game MediaPipe. Although not in a way of regular coordinate like (2, 3). MediaPipe instead provides us with a coordinate that only spans from 0 to 1.10290837t6745687918093074986tireodvhb jfceihui
+Inside each of those indices contains their current location on the single fram/image we game MediaPipe. Although not in a way of regular coordinate like (2, 3). MediaPipe instead provides us with a coordinate that only spans from 0 to 1, (0, 0) being the top left, (1, 1) being the bottom right. Because this is technically in a "Percentage" form, we must later multiply the coordinate given by MediaPipe with the screen resoltion (width and height)
+
+Normalization involves making something consistant and efficient. Because we are tracking the hand gesture, we need to make the coordinates of each indices consistent, why?
+
+for simplicity, lets say the screen resolution is 1280 by 720, width by height respectively
+
+A user makes a hand shape of a peace sign, hovering it at the middle left side of the camera, take a single node, say the 8th node (the tip of the index), the coordinate of that node would be (190, 220). but once the user moves the hadn to the right side of the camera, that coordinate would change (890, 220). The hand shape didnt change, but with that drastic change of the coordinate, the program will see it as a change of shape.
+
+To do this, we can introduce a new point on our hand that acts as a parent. So whenever we move out hand around the camera, the coordinate of each processed coordinates wont change and stays consistent.
+
+The most ocnsistent point on the hand is the wirst (node 0). During hand gesture its the only point that doesnt transform, change, or fold. this way we can normalize the other nodes by subtracting each nodes coordinate (wrist node excluded) by the wrist node. This way even though every single node have different coordinates around the screen (say on the screen, the index node is at (190, 220), it will stay consistent on the wrist frame of reference (always (200, 100) even though we move the hand around)
+
+This is our "normalization", we normalize each coordinates to consistently change in the wrist frame of reference
+
+* Corodinate as a vector
+
+From here, since we already have our consistent coordinates, we can treat them as vectors. Although in this case we only care about the unit vectors
+
+See, a vector consists of a magnitude and the dirction of the vector. The magnitude represents the distance between a certain node and the point of reference (teh wrist). this way, if an index finger is open, the vector of the tip of of index finger would have a bigger magnitude, compared to when the finger is curled, teh distance would be closer to teh wrist, this the magnitude would be lower.
+
+Although theres a flaw in this magnitude system. If the hand is closer to teh camera, by the camera's pint of view, the distance from the wrist and the index finger at any shape would be much more larger than when the hand is far away. Thus emerged inconsistency. In conclusion, we wouldnt need the magnitude of the vector, and instead we would simply need its direction. Since we would like to neglect the vector's magnitude, a simple way is to turn it into a unit vector, a vector which has the magnitude of 1, described by the following formula:
+
+$$
+\hat{v} = \frac{\overrightarrow v}{||v||}
+$$
 
 * Hand Orientation
+
 
 * Hand Shape
 
