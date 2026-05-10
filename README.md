@@ -70,7 +70,7 @@ INSERT IMAGE HERE LATER
 this way, we can match the hand's and finger's orientation by the vector projectoon Dot Product. By rearranging the dot product by uts cosine law, we can have whats called the "Cosine Similarity" denoted by:
 
 $$
-\cos{ \theta } = \frac{\overrightarrow A \dot \overrightarrow B}{||A|| \times ||B||}
+\cos{ \theta } = \frac{\overrightarrow{A} \dot \overrightarrow{B}}{||A|| \times ||B||}
 $$
 
 * Hand Shape
