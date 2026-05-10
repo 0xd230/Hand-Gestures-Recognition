@@ -76,7 +76,18 @@ $$
 \cos{ \theta } = \frac{\overrightarrow A \cdot \overrightarrow B}{||A||||B||}
 $$
 
+Although the biggest flaw of this formula is, it cannot define a shape of the hand, since we turned off the magnitude of the vector, we can know the angle of a certain node with respect to the wrist, but we cant tell the distance of each nodes with respect to the wrist. in short:
+
+The system will see a curled index the same as an open palm, because the index finger of the open palm direction from the wrist is the same with the direction of the index finger of curled from the wrist
+
+<img width="711" height="400" alt="angle barely different" src="https://github.com/user-attachments/assets/eb356ed8-dc02-4644-8903-1307af7f13b5" />
+
+We could only mesure the angle because we got rid of the magnitude earlier. Thus we would need to fetch the hand shape of the sample and the live gesture, how?
+
 * Hand Shape
+
+This last step
+  
 
 # System
 
