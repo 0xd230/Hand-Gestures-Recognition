@@ -25,7 +25,7 @@ These two componnents is the base of what makes a hand gesture
 
 To start off, when we feed the MediaPipe library with a frame or an image, the library would process the image, and define the location of each indices of the hand based on the landmark:
 
-<img width="1073" height="372" alt="hand-landmarks" src="https://github.com/user-attachments/assets/8bd3c6a8-12f4-4590-9a68-9abfcbfad4c4" />
+<img width="576" height="200" alt="hand-landmarks" src="https://github.com/user-attachments/assets/8bd3c6a8-12f4-4590-9a68-9abfcbfad4c4" />
 
 
 Inside each of those indices contains their current location on the single fram/image we game MediaPipe. Although not in a way of regular coordinate like (2, 3). MediaPipe instead provides us with a coordinate that only spans from 0 to 1, (0, 0) being the top left, (1, 1) being the bottom right. Because this is technically in a "Percentage" form, we must later multiply the coordinate given by MediaPipe with the screen resoltion (width and height)
@@ -58,19 +58,22 @@ $$
 
 The direction of this vector relies on the hand orientation, as the following:
 
-<img width="1408" height="768" alt="Gemini_Generated_Image_1d3o741d3o741d3o" src="https://github.com/user-attachments/assets/0f0b1cef-eb5e-4c48-b5da-824e9efdc2e9" />
+<img width="732" height="400" alt="Gemini_Generated_Image_1d3o741d3o741d3o" src="https://github.com/user-attachments/assets/0f0b1cef-eb5e-4c48-b5da-824e9efdc2e9" />
+
 Where $$\overrightarrow{a}$$ is the vector for the hand tilted 90º, and $$\overrightarrow{v}$$ is the vector for the up right hand.
 
 This shows that our vector's direction is proportional to our hand orientation, or to be specific, the position relative to the wrist.
 
 Suppose we have a sample of a peace sign, and the user shows an open palm in the live stream camera. The program would compare each indices with each of their own matching sample indices. The program will compare the vector for the tip of the index in camera, to the vector of the tip of the index in the provided sample. such as show below
 
-INSERT IMAGE HERE LATER
+<img width="500" height="500" alt="ChatGPT Image May 10, 2026 at 04_51_15 PM" src="https://github.com/user-attachments/assets/ef5db728-aae1-49ee-b32b-16b7a2dee65b" />
+
+This image shows the difference of the vectors by the reference and the live gesture. Here, the sample would be the peace sign, while the gesture held up by the user is an open palm. Suppose at now we are calculating the node for the tip of the index finger
 
 this way, we can match the hand's and finger's orientation by the vector projectoon Dot Product. By rearranging the dot product by uts cosine law, we can have whats called the "Cosine Similarity" denoted by:
 
 $$
-\cos{ \theta } = \frac{\overrightarrow A \dot \overrightarrow B}{||A|| \times ||B||}
+\cos{ \theta } = \frac{\overrightarrow A \cdot \overrightarrow B}{||A||||B||}
 $$
 
 * Hand Shape
